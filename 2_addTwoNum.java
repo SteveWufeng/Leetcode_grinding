@@ -25,14 +25,25 @@ class Solution {
             }
         }
         
+        result = head; // return to head
+        
         // second loop through l2 and add val into the result ListNode
-        
-        // if the val is greater then 10, and next is not null
-            // add 1 to next node
-            // current val minus 10
-        
-        // else if next is null 
-            // create a next node with val = 1
+        while (l2 != null) {
+            result.val += l2.val;
+            
+            // if the val is greater then 10, and next is not null
+            if (result.val >= 10 && result.next != null) {
+                // current val minus 10
+                result.val -= 10;
+                // add 1 to next node
+                result.next.val++; // increment val
+            }
+            // else if next result is null 
+            else if (result.next == null) {
+                // create a next node with val = 1
+                result.next = new ListNode(1);
+            }
+        }
         
         // return head
         return head;
