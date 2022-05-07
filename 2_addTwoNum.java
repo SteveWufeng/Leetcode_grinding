@@ -11,9 +11,19 @@
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         // create a result ListNode default constructor
+        ListNode result = new ListNode();
         // keep track of the head.
+        ListNode head = result;
         
         // first loop through the l1 and add all val into the ListNode
+        while (l1 != null) {
+            result.val = l1.val;
+            l1 = l1.next;
+            if (l1 != null) {
+                result.next = new ListNode();
+                result = result.next;
+            }
+        }
         
         // second loop through l2 and add val into the result ListNode
         
@@ -24,6 +34,7 @@ class Solution {
         // else if next is null 
             // create a next node with val = 1
         
-        // return result
+        // return head
+        return head;
     }
 }
