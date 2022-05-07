@@ -31,6 +31,9 @@ class Solution {
         while (l2 != null) {
             result.val += l2.val;
             // increment l2 and result
+            if (result.next == null && l2.next != null) {
+                result.next = new ListNode();
+            }
             result = result.next;
             l2 = l2.next;
         }
