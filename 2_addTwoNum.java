@@ -31,18 +31,21 @@ class Solution {
         while (l2 != null) {
             result.val += l2.val;
             
-            // if the val is greater then 10, and next is not null
-            if (result.val >= 10 && result.next != null) {
+            // if the val is greater then 10
+            if (result.val >= 10) {
                 // current val minus 10
                 result.val -= 10;
-                // add 1 to next node
-                result.next.val++; // increment val
+                if (result.next == null) {
+                    result.next = new ListNode(1);
+                }
+                else {
+                    // add 1 to next node
+                    result.next.val++;
+                }
             }
-            // else if next result is null 
-            else if (result.next == null) {
-                // create a next node with val = 1
-                result.next = new ListNode(1);
-            }
+            // increment l2
+            result = result.next;
+            l2 = l2.next;
         }
         
         // return head
