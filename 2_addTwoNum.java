@@ -30,10 +30,18 @@ class Solution {
         // second loop through l2 and add val into the result ListNode
         while (l2 != null) {
             result.val += l2.val;
-            
-            // if the val is greater then 10
+            // increment l2 and result
+            result = result.next;
+            l2 = l2.next;
+        }
+        
+        result = head;
+
+        // for all elements >= 10 increment to the next result val
+        // if the val is greater then 10
+        while (result != null) {
+            // current val minus 10
             if (result.val >= 10) {
-                // current val minus 10
                 result.val -= 10;
                 if (result.next == null) {
                     result.next = new ListNode(1);
@@ -43,9 +51,7 @@ class Solution {
                     result.next.val++;
                 }
             }
-            // increment l2
             result = result.next;
-            l2 = l2.next;
         }
         
         // return head
