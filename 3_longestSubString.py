@@ -1,20 +1,20 @@
-from pip import main
-
-
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
+    def lengthOfLongestSubstring(self, s):
         currentList = []
         longest = 0;
-        for ch in s:
-            if ch in currentList:
+        for i in range(len(s)):
+            if s[i] in currentList:
                 if (longest < len(currentList)):
                     longest = len(currentList)
-                currentList = []
-            currentList.append(ch)
+                temp = currentList.pop()
+                currentList = [temp]
+            currentList.append(s[i])
+        if (longest < len(currentList)):
+            longest = len(currentList)
         return longest
             
 
 if __name__ == "__main__":
     solve = Solution()
-    answer = solve.lengthOfLongestSubstring("abcabcbb")
+    answer = solve.lengthOfLongestSubstring("bbbb")
     print(answer)
