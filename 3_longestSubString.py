@@ -3,18 +3,23 @@ class Solution:
         currentList = []
         longest = 0;
         for i in range(len(s)):
-            if s[i] in currentList:
-                if (longest < len(currentList)):
-                    longest = len(currentList)
-                temp = currentList.pop()
+            for j in range(i, len(s)):
+                if s[j] in currentList:
+                    if (longest < len(currentList)):
+                        longest = len(currentList)
+                    currentList = []
+                currentList.append(s[j])
+            if (longest < len(currentList)):
+                longest = len(currentList)
+            temp = currentList.pop()
+            if (temp != s[j]):
                 currentList = [temp]
-            currentList.append(s[i])
-        if (longest < len(currentList)):
-            longest = len(currentList)
+            else:
+                currentList = []
         return longest
             
 
 if __name__ == "__main__":
     solve = Solution()
-    answer = solve.lengthOfLongestSubstring("bbbb")
+    answer = solve.lengthOfLongestSubstring("bbbbb")
     print(answer)
