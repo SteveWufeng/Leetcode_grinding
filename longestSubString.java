@@ -1,5 +1,6 @@
 import java.util.HashSet;
 
+// problem 3
 public class longestSubString {
     public int lengthOfLongestSubstring(String s) {
         HashSet<Character> window = new HashSet<>();
