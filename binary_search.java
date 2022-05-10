@@ -17,6 +17,7 @@ public class binary_search {
                 low = index+1;
                 index = index + (high - low)/2 +1;
             }
+            if (low >= nums.length || high < 0) {return -1;}
             current = nums[index];
         }
         return index;
