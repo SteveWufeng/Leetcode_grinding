@@ -19,16 +19,16 @@ class Solution:
             
             # if current index is bad, then first bad version must be lower than this
             if bad == True:
-                high = index-2
-                index += (high-low)//2
+                high = index-1
+                index -= (high-low)//2
             # else first bad must be higher than this
             else:
                 low = index+1
-                index = (high-low)//2
+                index += (high-low)//2
 
 if __name__ == '__main__':
     solve = Solution()
     n =   2126753390
     badVer = 1702766719
-    x = solve.firstBadVersion(n, badVer)
+    x = solve.firstBadVersion(5, 5)
     print(x)
