@@ -4,14 +4,14 @@ def isBadVersion(version: int, bad):
     return version >= bad
 
 class Solution:
-    def firstBadVersion(self, n: int, bad):
+    def firstBadVersion(self, n: int, badver):
         # start searching from middle
-        index = n
+        index = n//2
         # surround in while loop
         while (True):
             # if the middle is not a bad version, increment index
-            previousBad = isBadVersion(index-1, bad)
-            bad = isBadVersion(index, bad)
+            previousBad = isBadVersion(index-1, badver)
+            bad = isBadVersion(index, badver)
         
             if (not previousBad and bad):
                 return index
@@ -23,5 +23,7 @@ class Solution:
 
 if __name__ == '__main__':
     solve = Solution()
-    x = solve.firstBadVersion(5, 5)
+    n =   2126753390
+    badVer = 1702766719
+    x = solve.firstBadVersion(n, badVer)
     print(x)
