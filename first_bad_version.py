@@ -11,17 +11,20 @@ class Solution:
         low = 1
         # surround in while loop
         while (True):
-            # if the middle is not a bad version, increment index
+            # if the previous one is not bad and the current one is bad
             previousBad = isBadVersion(index-1, badver)
             bad = isBadVersion(index, badver)
-        
             if (not previousBad and bad):
-                return index
-            if (not bad):
-                index += scope//2
-            # else if is a bad version, decrement index
-            elif bad:
-                index -= scope//2
+                return index            # then this is the first bad version
+            
+            # if current index is bad, then first bad version must be lower than this
+            if bad == True:
+                high = index-2
+                index += (high-low)//2
+            # else first bad must be higher than this
+            else:
+                low = index+1
+                index = (high-low)//2
 
 if __name__ == '__main__':
     solve = Solution()
