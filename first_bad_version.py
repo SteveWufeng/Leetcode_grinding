@@ -7,6 +7,8 @@ class Solution:
     def firstBadVersion(self, n: int, badver):
         # start searching from middle
         index = n//2
+        high = n
+        low = 1
         # surround in while loop
         while (True):
             # if the middle is not a bad version, increment index
@@ -16,10 +18,10 @@ class Solution:
             if (not previousBad and bad):
                 return index
             if (not bad):
-                index += index//2
+                index += scope//2
             # else if is a bad version, decrement index
             elif bad:
-                index -= index//2
+                index -= scope//2
 
 if __name__ == '__main__':
     solve = Solution()
